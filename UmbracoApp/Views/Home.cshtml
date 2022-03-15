@@ -1,0 +1,39 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "master.cshtml";
+}
+
+@{
+    var title = Model.HasValue("title") ? Model.Value("title") : Model.Name;
+    var subTitle = Model.HasValue("subTitle") ? Model.Value<String>("subTitle") : "";
+    var image = Model.Value<IPublishedContent>("mainImage", fallback: Fallback.ToAncestors);
+    string imageUrl = "";
+    if (image != null)
+    {
+        imageUrl = image.GetCropUrl(1903, 532);
+    }
+}
+
+    <!-- Page Header-->
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+        <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+            <div class="carousel-inner" role="listbox">
+    
+                <!-- Slide 1 -->
+                <div class="carousel-item active" style="@(!string.IsNullOrWhiteSpace(imageUrl) ? "background-image: url('" + @imageUrl + "')" : null)">
+                    <div class="carousel-container">
+                        <div class="container">
+                            <h2 class="animate__animated animate__fadeInDown">@title</h2>
+                            <p class="animate__animated animate__fadeInUp">@subTitle</p>
+                            <a href="/contact/" class="btn-get-started animate__animated animate__fadeInUp scrollto">Send Email</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </section><!-- End Hero -->
+@Html.Partial("~/Views/Partials/About.cshtml")

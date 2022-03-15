@@ -1,0 +1,60 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@using ClientDependency.Core.Mvc
+
+@{
+    Layout = null;
+
+    <!-- Google Fonts -->
+    Html.RequiresCss("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i");
+    <!-- Vendor CSS Files -->
+    Html.RequiresCss("/assets/vendor/animate.css/animate.min.css");
+    Html.RequiresCss("/assets/vendor/bootstrap/css/bootstrap.min.css");
+    Html.RequiresCss("/assets/vendor/bootstrap-icons/bootstrap-icons.css");
+    Html.RequiresCss("/assets/vendor/boxicons/css/boxicons.min.css");
+    Html.RequiresCss("/assets/vendor/glightbox/css/glightbox.min.css");
+    Html.RequiresCss("/assets/vendor/remixicon/remixicon.css");
+    Html.RequiresCss("/assets/vendor/swiper/swiper-bundle.min.css");
+    Html.RequiresCss("/assets/css/style.css");
+
+    <!-- Vendor JS Files -->
+    Html.RequiresJs("/assets/vendor/bootstrap/js/bootstrap.bundle.min.js");
+    Html.RequiresJs("/assets/vendor/glightbox/js/glightbox.min.js");
+    Html.RequiresJs("/assets/vendor/isotope-layout/isotope.pkgd.min.js");
+    Html.RequiresJs("/assets/vendor/swiper/swiper-bundle.min.js");
+    Html.RequiresJs("/assets/vendor/waypoints/noframework.waypoints.js");
+    Html.RequiresJs("/assets/vendor/php-email-form/validate.js");
+
+    <!-- Template Main JS File -->
+    Html.RequiresJs("/assets/js/main.js");
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Sailor Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    @Html.RenderCssHere()
+
+</head>
+
+<body>
+
+    @Html.Partial("~/Views/Partials/Navigation.cshtml")
+    @RenderBody()
+    @Html.Partial("~/Views/Partials/Footer.cshtml")
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    @Html.RenderJsHere()
+</body>
+
+</html>
